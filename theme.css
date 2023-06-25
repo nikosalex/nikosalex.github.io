@@ -7,6 +7,7 @@ html, body{
     margin: 0;
     height: 100vh;
     text-align: center;
+    background-color: #FFFFF0;
 }
 .header{
     background-image: url(./img/hero.png);
