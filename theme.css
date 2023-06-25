@@ -1,6 +1,6 @@
 *{
     font-family: 'Quicksand', sans-serif;
-    font-size: 25px;
+    font-size: 16px;
     color: #222;
 }
 html, body{
@@ -61,6 +61,7 @@ html, body{
     margin: 0 auto;
     max-width: 600px;
     padding: 1em 2.4em;
+    font-size: 25px;
 }
 .sub-heading{
     font-family: 'Caveat', cursive;
