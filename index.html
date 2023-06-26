@@ -43,7 +43,16 @@
         <i class="fas fa-calendar-check"></i>
         <h3 class="details-heading">Ημερομηνια</h3>
         <p>Οκτώβριος 21, 2023</p>
-        <a title="Add to Calendar" rel="noopener" href="#" target="_blank" rel="nofollow">Προσθήκη στο ημερολόγιο</a>
+        <!--<a title="Add to Calendar" rel="noopener" href="#" target="_blank" rel="nofollow">Προσθήκη στο ημερολόγιο</a>-->
+        <div title="Add to Calendar" class="addeventatc">
+          Προσθήκη στο ημερολόγιο
+          <span class="start">10/21/2023 05:00 PM</span>
+          <span class="end">10/22/2023 06:00 AM</span>
+          <span class="timezone">Eastern European Summer Time/Athens</span>
+          <span class="title">Γάμος Νίκου & Αγγελικής</span>
+          <span class="description">Ο γάμος θα τελεστεί στον Ι.Ν Αγίου Δημητρίου Κοντόπευκου Αγίας Παρασκευής. Θα ακολουθήσει δεξίωση στις Αμαδρυάδες στο Πικέρμι https://goo.gl/maps/C15fr3oBcGz6bQvJ7.</span>
+          <span class="location">https://goo.gl/maps/7qEQ1xM6UY9jsozW7</span>
+        </div>
       </div>
       <div class="details">
         <!--<i class="fas fa-map-marked-alt"></i>-->
@@ -92,6 +101,7 @@
       function hideButton() {
         rsvpButton.style.display = 'none';
       }      
-    </script>   
+    </script>
+    <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
   </body>
 </html>
