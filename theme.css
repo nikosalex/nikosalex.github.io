@@ -85,6 +85,7 @@ html, body{
 .fas {
     font-size: 3em;
     opacity: .8;
+    margin-top: 20px;
 }
 .resort-image{
     width: 100%
