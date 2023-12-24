@@ -5,6 +5,8 @@ $(`.bar-expand.${skillClass}`).css('width', `${width}%`);
 
 // Call the function for each skill with the corresponding years of experience
 $(document).ready(function() {
+setProgressBar('azure', 2);            // 2 years of Azure experience
+setProgressBar('terraform', 1);        // 1 years of Terraform experience
 setProgressBar('kubernetes', 2);       // 2 years of Kubernetes experience
 setProgressBar('helm', 2);             // 2 years of Helm experience
 setProgressBar('docker', 2);           // 2 years of Docker experience
