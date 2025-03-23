@@ -74,25 +74,9 @@ export default function Home() {
           />
         </div>
 
-        {/* "EΓΩ" Section with Child Photo - improved styling */}
-        <div className="text-center mb-10">
-          <h2 className="invitation-text text-5xl mb-6">ΕΓΩ</h2>
-          <div className="border-8 border-white inline-block p-2 shadow-lg bg-white">
-            <Image
-              src="/images/child.jpeg"
-              alt="Child photo"
-              width={240}
-              height={240}
-              className="object-cover w-[200px] md:w-[240px] h-[200px] md:h-[240px]"
-              priority
-              crossOrigin="anonymous"
-            />
-          </div>
-        </div>
-
         {/* Child Name - increased font size */}
         <div className="text-center mb-10">
-          <h2 className="invitation-text text-4xl">ΣΤΕΛΙΟΣ</h2>
+          <h2 className="invitation-text text-4xl">ΓΙΩΡΓΟΣ</h2>
         </div>
 
         {/* Parents Section - improved spacing */}
@@ -104,7 +88,7 @@ export default function Home() {
 
         {/* Godparents Section - improved spacing */}
         <div className="text-center mb-10">
-          <h3 className="invitation-text text-3xl mb-4">ΟΙ ΝΟΝΑ ΜΟΥ</h3>
+          <h3 className="invitation-text text-3xl mb-4">Η ΝΟΝΑ ΜΟΥ</h3>
           <p className="text-xl">ΝΙΚΟΛΕΤΑ ΠΑΠΑ</p>
         </div>
 
@@ -113,7 +97,7 @@ export default function Home() {
           <h3 className="invitation-text text-3xl mb-6">Η ΕΚΚΛΗΣΙΑ</h3>
           <div className="w-full h-[300px] md:h-[400px] relative rounded-lg overflow-hidden shadow-lg">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.9979034123674!2d22.9642921!3d40.3773555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a838fe7a9a7395%3A0xde6f6c8431b3364c!2sI.N.%20Metamorphoseos%20Tou%20Sotiros!5e0!3m2!1sen!2sgr!4v1654345678901!5m2!1sen!2sgr"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9517.262049242143!2d23.802781541146615!3d38.026600479155874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a1991dc3402ae5%3A0x55ea77a92cc012e0!2zzobOs865zr_PgiDOkc64zrHOvc6sz4POuc6_z4IgzqDOv867z4XOtM-Bz4zPg86_z4U!5e0!3m2!1sel!2sgr!4v1742743696851!5m2!1sel!2sgr"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -162,11 +146,6 @@ export default function Home() {
           </form>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="w-full text-center p-4 text-sm text-gray-700 mt-8">
-        © Copyright 2022 Proslitirio4u.gr Rights Reserved - Created with ♥ by MazeAdv
-      </footer>
     </main>
   );
 }
