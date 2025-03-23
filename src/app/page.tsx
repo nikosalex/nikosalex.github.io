@@ -4,16 +4,6 @@ import { Button } from '@/components/ui/button';
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
-      {/* Top Header */}
-      <header className="w-full bg-[#303936] text-white py-3 px-4 flex justify-between items-center">
-        <div className="flex-1 text-center text-sm md:text-base">
-          Μπορείς και εσύ να αποκτήσεις το δικό σου Ηλεκτρονικό Προσκλητήριο άμεσα και γρήγορα.
-        </div>
-        <Button className="bg-[#6aaa68] hover:bg-[#5a9a58] text-white px-4">
-          ΕΔΩ
-        </Button>
-      </header>
-
       {/* Main Invitation */}
       <div className="max-w-4xl w-full px-4 md:px-8 py-8 relative invitation-container">
         {/* Decorative elements - positioned according to original design */}
