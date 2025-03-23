@@ -78,7 +78,7 @@ export default function Home() {
         {/* Godparents Section - improved spacing */}
         <div className="text-center mb-10">
           <h3 className="invitation-text text-3xl mb-4">Η ΝΟΝΑ ΜΟΥ</h3>
-          <p className="text-xl">ΝΙΚΟΛΕΤΑ ΠΑΠΑ</p>
+          <p className="text-xl">ΝΙΚΟΛΕΤΑ</p>
         </div>
 
         {/* Church Section - larger map */}
