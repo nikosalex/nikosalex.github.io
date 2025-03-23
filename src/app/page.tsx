@@ -45,10 +45,9 @@ export default function Home() {
         <div className="invitation-text text-2xl md:text-3xl lg:text-4xl mb-12 mt-12 pt-6">
           ΣΑΣ ΠΡΟΣΚΑΛΟΥΜΕ ΣΤΗ<br />
           ΒΑΠΤΙΣΗ ΤΟΥ ΓΙΟΥ ΜΑΣ ΤΗΝ<br />
-          ΚΥΡΙΑΚΗ 15 ΙΟΥΛΙΟΥ 2025 &<br />
-          ΩΡΑ 12:00Μ.Μ. ΣΤΟΝ ΙΕΡΟ ΝΑΟ<br />
-          ΜΕΤΑΜΟΡΦΩΣΕΩΣ ΤΟΥ<br />
-          ΣΩΤΗΡΟΣ
+          ΚΥΡΙΑΚΗ 29 ΙΟΥΝΙΟΥ 2025 &<br />
+          ΩΡΑ 11:00Π.Μ. ΣΤΟΝ ΙΕΡΟ ΝΑΟ<br />
+          ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΣΤΟ ΠΟΛΥΔΡΟΣΟ ΧΑΛΑΝΔΡΙΟΥ<br />
         </div>
 
         {/* Lion Image - made slightly larger */}
