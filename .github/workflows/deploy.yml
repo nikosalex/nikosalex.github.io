@@ -81,16 +81,12 @@ jobs:
         run: npm install
 
       - name: Build with Next.js (Static Export)
-        run: npm run build && npm run export
-
-      - name: Move output to public
-        run: |
-          mv out public
+        run: npm run build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./public
+          path: ./out
 
   deploy:
     environment:
@@ -102,3 +98,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
