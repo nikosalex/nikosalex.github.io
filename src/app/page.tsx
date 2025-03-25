@@ -109,7 +109,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* RSVP Form - improved styling */}
+        {/* RSVP Form - improved styling
         <div className="max-w-md mx-auto bg-white/80 p-4 md:p-6 rounded-lg shadow-lg">
           <form className="flex flex-col gap-4">
             <input
@@ -133,7 +133,7 @@ export default function Home() {
               Αποστολή
             </button>
           </form>
-        </div>
+        </div> */}
       </div>
     </main>
   );
