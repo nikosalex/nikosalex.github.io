@@ -72,8 +72,8 @@ export default function Home() {
         {/* Parents Section - improved spacing */}
         <div className="text-center mb-10">
           <h3 className="invitation-text text-3xl mb-4">ΟΙ ΓΟΝΕΙΣ ΜΟΥ</h3>
-          <p className="text-xl">ΝΙΚΟΣ &</p>
-          <p className="text-xl">ΑΓΓΕΛΙΚΗ</p>
+          <p className="text-xl">νικος &</p>
+          <p className="text-xl">αγγελικη</p>
         </div>
 
         {/* Godparents Section - improved spacing */}
