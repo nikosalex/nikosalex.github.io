@@ -7,7 +7,8 @@ export default function Home() {
       {/* Main Invitation */}
       <div className="max-w-4xl w-full px-4 md:px-8 py-8 relative invitation-container">
         {/* Decorative elements - positioned according to original design */}
-        <div className="absolute top-0 right-0 m-4">
+        {/* <div className="absolute top-0 right-0 m-4"> */}
+        <div className="absolute top-10 right-30 z-15">
           <Image
             src="/images/monkey.png"
             alt="Decorative monkey"
