@@ -47,8 +47,8 @@ export default function Home() {
           ΣΑΣ ΠΡΟΣΚΑΛΟΥΜΕ ΣΤΗ<br />
           ΒΑΠΤΙΣΗ ΤΟΥ ΓΙΟΥ ΜΑΣ ΤΗΝ<br />
           ΚΥΡΙΑΚΗ 29 ΙΟΥΝΙΟΥ 2025 &<br />
-          ΩΡΑ 11:00Π.Μ. ΣΤΟΝ ΙΕΡΟ ΝΑΟ<br />
-          ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΣΤΟ ΠΟΛΥδΡΟΣΟ ΧΑΛΑΝΔΡΙΟΥ<br />
+          ωΡΑ 11:00Π.Μ. ΣΤΟΝ ΙΕΡΟ ΝΑΟ<br />
+          ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΣΤΟ ΠΟΛΥδΡΟΣΟ ΧΑΛΑΝδΡΙΟΥ<br />
         </div>
 
         {/* Lion Image - made slightly larger */}
@@ -66,7 +66,7 @@ export default function Home() {
 
         {/* Child Name - increased font size */}
         <div className="text-center mb-10">
-          <h2 className="invitation-text text-4xl">ΓΙΩΡΓΟΣ</h2>
+          <h2 className="invitation-text text-4xl">ΓΙωΡΓΟΣ</h2>
         </div>
 
         {/* Parents Section - improved spacing */}
