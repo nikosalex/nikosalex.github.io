@@ -44,11 +44,11 @@ export default function Home() {
 
         {/* Invitation Text - now with more spacing and slightly larger */}
         <div className="invitation-text text-2xl md:text-3xl lg:text-4xl mb-12 mt-12 pt-6">
-          ΣΑΣ ΠΡΟΣΚΑΛΟΥΜΕ ΣΤΗ<br />
-          ΒΑΠΤΙΣΗ ΤΟΥ ΓΙΟΥ ΜΑΣ ΤΗΝ<br />
-          ΚΥΡΙΑΚΗ 29 ΙΟΥΝΙΟΥ 2025 &<br />
-          ωΡΑ 11:00Π.Μ. ΣΤΟΝ ΙΕΡΟ ΝΑΟ<br />
-          ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΣΤΟ ΠΟΛΥδΡΟΣΟ ΧΑΛΑΝδΡΙΟΥ<br />
+          ελατε να γιορτασουμε την<br />
+          βαπτιση του γιου μασ<br />
+          σασ περιμενουμε την κυριακη 29 ιουνιου 2025 &<br />
+          ωρα 11:00Π.Μ. στον ιερο ναο<br />
+          αγιου αθανασιου στο πολυδροσο χαλανδριου<br />
         </div>
 
         {/* Lion Image - made slightly larger */}
@@ -64,10 +64,10 @@ export default function Home() {
           />
         </div>
 
-        {/* Child Name - increased font size */}
+        {/* Child Name - increased font size
         <div className="text-center mb-10">
           <h2 className="invitation-text text-4xl">ΓΙωΡΓΟΣ</h2>
-        </div>
+        </div> */}
 
         {/* Parents Section - improved spacing */}
         <div className="text-center mb-10">
