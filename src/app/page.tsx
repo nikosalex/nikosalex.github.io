@@ -71,14 +71,14 @@ export default function Home() {
         {/* Parents Section - improved spacing */}
         <div className="text-center mb-10">
           <h3 className="invitation-text text-3xl mb-4">ΟΙ ΓΟΝΕΙΣ ΜΟΥ</h3>
-          <p className="text-xl">ΚΩΣΤΑΣ ΠΑΠΑΔΟΠΟΥΛΟΣ &</p>
-          <p className="text-xl">ΕΦΗ ΚΑΡΡΑ</p>
+          <p className="text-xl">ΝΙΚΟΣ &</p>
+          <p className="text-xl">ΑΓΓΕΛΙΚΗ</p>
         </div>
 
         {/* Godparents Section - improved spacing */}
         <div className="text-center mb-10">
           <h3 className="invitation-text text-3xl mb-4">Η ΝΟΝΑ ΜΟΥ</h3>
-          <p className="text-xl">ΝΙΚΟΛΕΤΑ</p>
+          <p className="text-xl">ΕΛΠΙΝΙΚΗ</p>
         </div>
 
         {/* Church Section - larger map */}
@@ -97,7 +97,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Contact Info - improved styling */}
+        {/* Contact Info - improved styling
         <div className="flex flex-col md:flex-row justify-center gap-8 md:gap-12 mb-12">
           <div>
             <h4 className="text-xl md:text-2xl mb-2 font-semibold">Κώστας</h4>
@@ -107,7 +107,7 @@ export default function Home() {
             <h4 className="text-xl md:text-2xl mb-2 font-semibold">Έφη</h4>
             <p className="text-lg md:text-xl">τηλ: 6985060000</p>
           </div>
-        </div>
+        </div> */}
 
         {/* RSVP Form - improved styling
         <div className="max-w-md mx-auto bg-white/80 p-4 md:p-6 rounded-lg shadow-lg">
