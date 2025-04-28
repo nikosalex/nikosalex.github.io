@@ -45,7 +45,7 @@ export default function Home() {
         {/* Invitation Text - now with more spacing and slightly larger */}
         <div className="invitation-text text-2xl md:text-3xl lg:text-4xl mb-12 mt-12 pt-6">
           ελατε να γιορτασουMε την<br />
-          βαπτιση του γιου Μασ<br />
+          βαπτιση του γιου Μασ !<br />
           σασ περιΜενουΜε την κυριακη 29 ιουνιου 2025 &<br />
           ωρα 11:00Π.Μ. στον ιερο ναο<br />
           αγιου αθανασιου στο πολυδροσο χαλανδριου<br />
