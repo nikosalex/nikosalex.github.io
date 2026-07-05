@@ -80,6 +80,15 @@ body::after {
   border-radius: 2rem;
 }
 
+.hero-emblem {
+  width: min(320px, 72vw);
+  height: auto;
+  margin-bottom: 1.5rem;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
 .eyebrow {
   margin: 0 0 0.75rem;
   letter-spacing: 0.22em;
@@ -98,7 +107,8 @@ h2 {
 
 h1 {
   font-size: clamp(3.8rem, 11vw, 7.4rem);
-  max-width: 9ch;
+  max-width: none;
+  white-space: nowrap;
 }
 
 h2 {
