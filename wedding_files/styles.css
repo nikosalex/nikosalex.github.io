@@ -23,6 +23,8 @@ body {
   min-height: 100vh;
   font-family: "Manrope", sans-serif;
   color: var(--text);
+  line-height: 1.6;
+  letter-spacing: 0;
   background:
     radial-gradient(circle at top left, rgba(255, 255, 255, 0.7), transparent 35%),
     linear-gradient(140deg, var(--bg) 0%, #f7e8df 48%, var(--bg-accent) 100%);
