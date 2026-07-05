@@ -1,17 +1,19 @@
+const pageLanguage = document.documentElement.lang || "el";
+
 const weddingDetails = {
-  coupleNames: "Nikos & Lina",
+  coupleNames: document.getElementById("couple-names")?.textContent?.trim() || "Νίκος & Λίνα",
   eventDate: "2026-10-31T17:00:00",
-  displayDate: "Saturday, 31 October 2026",
-  displayTime: "17:00",
-  venueName: "Asteria Seaside Garden",
-  venueAddress: "Vouliagmeni, Athens, Greece",
+  displayDate: document.getElementById("event-date-text")?.textContent?.trim() || "Σάββατο, 31 Οκτωβρίου 2026",
+  displayTime: document.getElementById("event-time-text")?.textContent?.trim() || "17:00",
+  venueName: document.getElementById("venue-name")?.textContent?.trim() || "Asteria Seaside Garden",
+  venueAddress: document.getElementById("venue-address")?.textContent?.trim() || "Vouliagmeni, Athens, Greece",
   coordinates: {
     latitude: 37.815,
     longitude: 23.7785,
   },
   eventDurationHours: 7,
-  nikosPhone: "Add Nikos phone",
-  linaPhone: "Add Lina phone",
+  nikosPhone: document.getElementById("nikos-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο του Νίκου",
+  linaPhone: document.getElementById("lina-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο της Λίνας",
   rsvpDeadlineDaysBefore: 15,
   rsvpEmail: "rsvp@example.com",
 };
@@ -45,7 +47,7 @@ function pad(value) {
 }
 
 function formatLongDate(date) {
-  return new Intl.DateTimeFormat("en-GB", {
+  return new Intl.DateTimeFormat(pageLanguage, {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -79,8 +81,8 @@ function escapeIcsText(value) {
 function buildGoogleCalendarUrl() {
   const startDate = new Date(weddingDetails.eventDate);
   const endDate = getEventEndDate();
-  const title = `${weddingDetails.coupleNames} Wedding`;
-  const details = `Wedding celebration for ${weddingDetails.coupleNames}.`;
+  const title = `Γάμος ${weddingDetails.coupleNames}`;
+  const details = `Γαμήλια γιορτή για τους ${weddingDetails.coupleNames}.`;
   const location = `${weddingDetails.venueName}, ${weddingDetails.venueAddress}`;
   const params = new URLSearchParams({
     action: "TEMPLATE",
@@ -96,8 +98,8 @@ function buildGoogleCalendarUrl() {
 function buildOutlookCalendarUrl() {
   const startDate = new Date(weddingDetails.eventDate);
   const endDate = getEventEndDate();
-  const title = `${weddingDetails.coupleNames} Wedding`;
-  const description = `Wedding celebration for ${weddingDetails.coupleNames}.`;
+  const title = `Γάμος ${weddingDetails.coupleNames}`;
+  const description = `Γαμήλια γιορτή για τους ${weddingDetails.coupleNames}.`;
   const location = `${weddingDetails.venueName}, ${weddingDetails.venueAddress}`;
   const params = new URLSearchParams({
     path: "/calendar/action/compose",
@@ -114,8 +116,8 @@ function buildOutlookCalendarUrl() {
 
 function buildYahooCalendarUrl() {
   const startDate = new Date(weddingDetails.eventDate);
-  const title = `${weddingDetails.coupleNames} Wedding`;
-  const description = `Wedding celebration for ${weddingDetails.coupleNames}.`;
+  const title = `Γάμος ${weddingDetails.coupleNames}`;
+  const description = `Γαμήλια γιορτή για τους ${weddingDetails.coupleNames}.`;
   const location = `${weddingDetails.venueName}, ${weddingDetails.venueAddress}`;
   const duration = String(weddingDetails.eventDurationHours).padStart(2, "0") + "00";
   const params = new URLSearchParams({
@@ -135,13 +137,13 @@ function buildYahooCalendarUrl() {
 function buildIcsFile() {
   const startDate = new Date(weddingDetails.eventDate);
   const endDate = getEventEndDate();
-  const title = `${weddingDetails.coupleNames} Wedding`;
+  const title = `Γάμος ${weddingDetails.coupleNames}`;
   const location = `${weddingDetails.venueName}, ${weddingDetails.venueAddress}`;
-  const description = `Wedding celebration for ${weddingDetails.coupleNames}.`;
+  const description = `Γαμήλια γιορτή για τους ${weddingDetails.coupleNames}.`;
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Nikos and Lina Wedding//EN",
+    "PRODID:-//Nikos and Lina Wedding//EL",
     "BEGIN:VEVENT",
     `UID:${startDate.getTime()}@nikos-lina-wedding`,
     `DTSTAMP:${formatCalendarDate(new Date())}`,
@@ -197,7 +199,7 @@ function updateCountdown() {
     elements.hours.textContent = "00";
     elements.minutes.textContent = "00";
     elements.seconds.textContent = "00";
-    elements.countdownMessage.textContent = "Today is the day. We can't wait to celebrate with you.";
+    elements.countdownMessage.textContent = "Η μέρα έφτασε. Ανυπομονούμε να γιορτάσουμε μαζί σας.";
     return;
   }
 
@@ -235,7 +237,7 @@ function setupRsvpForm() {
       ].join("\n")
     );
 
-    elements.formStatus.textContent = `Opening your email app for ${guestName}'s RSVP.`;
+    elements.formStatus.textContent = `Ανοίγει η εφαρμογή email για την απάντηση του/της ${guestName}.`;
     window.location.href = `mailto:${weddingDetails.rsvpEmail}?subject=${subject}&body=${body}`;
   });
 }
