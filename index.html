@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nikos &amp; Lina</title>
+		<meta
+			name="description"
+			content="A romantic wedding invitation with event details, countdown, and map coordinates."
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="wedding_files/styles.css" />
+	</head>
+	<body>
+		<div class="page-shell">
+			<header class="hero">
+				<h1 id="couple-names">Nikos &amp; Lina</h1>
+				<p class="hero-copy">
+					We would be honored to celebrate our wedding day with you.
+				</p>
+				<div class="hero-card">
+					<div>
+						<span class="label">Date</span>
+						<strong id="event-date-text">Saturday, 31 October 2026</strong>
+					</div>
+					<div>
+						<span class="label">Time</span>
+						<strong id="event-time-text">17:00</strong>
+					</div>
+				</div>
+			</header>
+
+			<main>
+				<section class="countdown-section panel">
+					<div class="section-heading">
+						<p class="eyebrow">Countdown</p>
+						<h2>Counting the days until we say “I do”</h2>
+					</div>
+					<div class="countdown-grid" id="countdown" aria-live="polite">
+						<article class="time-box">
+							<span class="time-value" id="days">0</span>
+							<span class="time-label">Days</span>
+						</article>
+						<article class="time-box">
+							<span class="time-value" id="hours">0</span>
+							<span class="time-label">Hours</span>
+						</article>
+						<article class="time-box">
+							<span class="time-value" id="minutes">0</span>
+							<span class="time-label">Minutes</span>
+						</article>
+						<article class="time-box">
+							<span class="time-value" id="seconds">0</span>
+							<span class="time-label">Seconds</span>
+						</article>
+					</div>
+					<p class="countdown-note" id="countdown-message">
+						Save the date and celebrate with us.
+					</p>
+				</section>
+
+				<section class="details-layout">
+					<section class="panel event-details">
+						<div class="section-heading">
+							<p class="eyebrow">The Day</p>
+							<h2>Event Details</h2>
+						</div>
+						<div class="detail-list">
+							<div>
+								<span class="label">Ceremony &amp; Reception</span>
+								<strong id="venue-name">Asteria Seaside Garden</strong>
+							</div>
+							<div>
+								<span class="label">Address</span>
+								<strong id="venue-address">Vouliagmeni, Athens, Greece</strong>
+							</div>
+							<div>
+								<span class="label">Coordinates</span>
+								<strong id="coordinates-text">37.8150, 23.7785</strong>
+							</div>
+						</div>
+					</section>
+
+					<section class="panel map-panel">
+						<div class="section-heading">
+							<p class="eyebrow">Location</p>
+							<h2>Find the venue</h2>
+						</div>
+						<p class="map-copy">
+							Tap the button below to open Google Maps with the venue coordinates.
+						</p>
+						<a
+							class="map-link"
+							id="map-link"
+							href="https://maps.google.com/?q=37.8150,23.7785"
+							target="_blank"
+							rel="noreferrer"
+						>
+							Open in Google Maps
+						</a>
+					</section>
+				</section>
+
+				<section class="panel calendar-panel">
+					<div class="section-heading">
+						<p class="eyebrow">Save our date</p>
+						<h2>Save our date</h2>
+					</div>
+					<p class="map-copy">
+						Add our wedding to your calendar so you do not miss the celebration.
+					</p>
+					<div class="calendar-actions">
+						<a class="map-link" id="google-calendar-link" href="#" target="_blank" rel="noreferrer">
+							Add to Google Calendar
+						</a>
+						<a class="map-link secondary-link" id="outlook-calendar-link" href="#" target="_blank" rel="noreferrer">
+							Add to Outlook
+						</a>
+						<a class="map-link secondary-link" id="yahoo-calendar-link" href="#" target="_blank" rel="noreferrer">
+							Add to Yahoo Calendar
+						</a>
+						<a class="map-link secondary-link" id="apple-calendar-link" href="#" download="nikos-lina-wedding.ics">
+							Download for Apple Calendar
+						</a>
+					</div>
+					<p class="calendar-note">
+						The calendar file also works with Apple Calendar and many other calendar apps.
+					</p>
+				</section>
+
+				<section class="panel rsvp-panel">
+					<div class="section-heading">
+						<p class="eyebrow">RSVP</p>
+						<h2>Let us know if you can join us</h2>
+					</div>
+					<p class="map-copy">
+						Complete the form below and your RSVP will open in your email app, ready to send.
+					</p>
+					<div class="rsvp-details">
+						<p class="rsvp-deadline">
+							Please reply by <strong id="rsvp-deadline">15 October 2026</strong>.
+						</p>
+						<div class="contact-list">
+							<p>
+								<span class="label">Nikos</span>
+								<strong id="nikos-phone">Add Nikos phone</strong>
+							</p>
+							<p>
+								<span class="label">Lina</span>
+								<strong id="lina-phone">Add Lina phone</strong>
+							</p>
+						</div>
+					</div>
+					<form class="rsvp-form" id="rsvp-form">
+						<div class="form-grid">
+							<label>
+								<span class="label">Your Name</span>
+								<input id="guest-name" name="guestName" type="text" required />
+							</label>
+							<label>
+								<span class="label">Email</span>
+								<input id="guest-email" name="guestEmail" type="email" required />
+							</label>
+							<label>
+								<span class="label">Phone</span>
+								<input id="guest-phone" name="guestPhone" type="tel" required />
+							</label>
+							<label>
+								<span class="label">Number of Guests</span>
+								<input id="guest-count" name="guestCount" type="number" min="1" max="6" value="1" required />
+							</label>
+						</div>
+						<label>
+							<span class="label">Message</span>
+							<textarea id="guest-message" name="guestMessage" rows="4" placeholder="Dietary notes, wishes, or anything you'd like us to know"></textarea>
+						</label>
+						<button class="map-link rsvp-button" type="submit">Send RSVP</button>
+						<p class="form-status" id="form-status" aria-live="polite"></p>
+					</form>
+				</section>
+			</main>
+		</div>
+
+		<script src="wedding_files/script.js"></script>
+	</body>
+</html>
