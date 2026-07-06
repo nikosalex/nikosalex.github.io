@@ -1,16 +1,60 @@
 const pageLanguage = document.documentElement.lang || "el";
+const initialMapHref = document.getElementById("map-link")?.getAttribute("href")?.trim() || "";
+
+function parseCoordinatesFromHref(href) {
+  if (!href) {
+    return null;
+  }
+
+  try {
+    const url = new URL(href, window.location.href);
+    const query = url.searchParams.get("q");
+
+    if (!query) {
+      return null;
+    }
+
+    const [latitude, longitude] = query.split(",").map((value) => Number.parseFloat(value.trim()));
+
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+      return null;
+    }
+
+    return { latitude, longitude };
+  } catch {
+    return null;
+  }
+}
+
+function parseCoordinatesFromText(value) {
+  if (!value) {
+    return null;
+  }
+
+  const [latitude, longitude] = value.split(",").map((item) => Number.parseFloat(item.trim()));
+
+  if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) {
+    return null;
+  }
+
+  return { latitude, longitude };
+}
+
+const initialCoordinates =
+  parseCoordinatesFromText(document.getElementById("coordinates-text")?.textContent) ||
+  parseCoordinatesFromHref(document.getElementById("map-link")?.getAttribute("href")) || {
+    latitude: 37.815,
+    longitude: 23.7785,
+  };
 
 const weddingDetails = {
   coupleNames: document.getElementById("couple-names")?.textContent?.trim() || "Νίκος & Λίνα",
   eventDate: "2026-10-31T17:00:00",
   displayDate: document.getElementById("event-date-text")?.textContent?.trim() || "Σάββατο, 31 Οκτωβρίου 2026",
   displayTime: document.getElementById("event-time-text")?.textContent?.trim() || "17:00",
-  venueName: document.getElementById("venue-name")?.textContent?.trim() || "Asteria Seaside Garden",
-  venueAddress: document.getElementById("venue-address")?.textContent?.trim() || "Vouliagmeni, Athens, Greece",
-  coordinates: {
-    latitude: 37.815,
-    longitude: 23.7785,
-  },
+  venueName: document.getElementById("venue-name")?.textContent?.trim() || "Κτήμα Ναϊάς",
+  venueAddress: document.getElementById("venue-address")?.textContent?.trim() || "Πυθαγόρα 24, Κορωπί 194 00",
+  coordinates: initialCoordinates,
   eventDurationHours: 7,
   nikosPhone: document.getElementById("nikos-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο του Νίκου",
   linaPhone: document.getElementById("lina-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο της Λίνας",
@@ -159,6 +203,26 @@ function buildIcsFile() {
   return `data:text/calendar;charset=utf-8,${encodeURIComponent(lines.join("\r\n"))}`;
 }
 
+function buildGoogleMapsUrl() {
+  if (initialMapHref && !initialMapHref.includes("?q=")) {
+    return initialMapHref;
+  }
+
+  const { venueName, venueAddress, coordinates } = weddingDetails;
+  const locationQuery = [venueName, venueAddress].filter(Boolean).join(", ").trim();
+
+  if (locationQuery) {
+    const params = new URLSearchParams({
+      api: "1",
+      query: locationQuery,
+    });
+
+    return `https://www.google.com/maps/search/?${params.toString()}`;
+  }
+
+  return `https://maps.google.com/?q=${coordinates.latitude},${coordinates.longitude}`;
+}
+
 function populateDetails() {
   const {
     coupleNames,
@@ -182,7 +246,7 @@ function populateDetails() {
   elements.rsvpDeadline.textContent = formatLongDate(rsvpDeadline);
   elements.nikosPhone.textContent = nikosPhone;
   elements.linaPhone.textContent = linaPhone;
-  elements.mapLink.href = `https://maps.google.com/?q=${coordinates.latitude},${coordinates.longitude}`;
+  elements.mapLink.href = buildGoogleMapsUrl();
   elements.googleCalendarLink.href = buildGoogleCalendarUrl();
   elements.outlookCalendarLink.href = buildOutlookCalendarUrl();
   elements.yahooCalendarLink.href = buildYahooCalendarUrl();
