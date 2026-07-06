@@ -326,13 +326,26 @@ main {
 
 @media (max-width: 780px) {
   .page-shell {
-    width: min(100% - 1rem, 1100px);
+    width: min(1100px, calc(100% - 1rem));
     padding-top: 0.5rem;
   }
 
   .hero {
     min-height: auto;
     padding: 3rem 1.2rem;
+  }
+
+  h1 {
+    white-space: normal;
+    font-size: clamp(2.9rem, 13vw, 4.8rem);
+    margin-top: -0.35rem;
+    line-height: 1;
+  }
+
+  .hero-copy,
+  .map-copy,
+  .countdown-note {
+    font-size: 1.05rem;
   }
 
   .hero-card,
@@ -349,5 +362,56 @@ main {
 
   .panel {
     padding: 1.4rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    width: calc(100% - 0.75rem);
+  }
+
+  .hero {
+    padding: 2.4rem 0.9rem;
+    border-radius: 1.5rem;
+  }
+
+  .hero-emblem {
+    width: min(360px, 92vw);
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 12vw, 3.6rem);
+    margin-top: -0.15rem;
+  }
+
+  h2 {
+    font-size: clamp(1.85rem, 8vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  .eyebrow,
+  .label,
+  .time-label {
+    letter-spacing: 0.08em;
+  }
+
+  .hero-copy,
+  .map-copy,
+  .countdown-note {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .panel,
+  .hero-card,
+  .rsvp-details,
+  .time-box {
+    padding: 1.1rem;
+  }
+
+  .map-link {
+    width: 100%;
+    justify-self: stretch;
+    padding: 0.9rem 1rem;
   }
 }
