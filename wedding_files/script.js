@@ -59,6 +59,7 @@ const weddingDetails = {
   nikosPhone: document.getElementById("nikos-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο του Νίκου",
   linaPhone: document.getElementById("lina-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο της Λίνας",
   rsvpDeadlineDaysBefore: 15,
+  rsvpScriptUrl: "https://script.google.com/macros/s/AKfycbyDvp1PQ8oqEDqq9JDPRLdnuSFZI6ohv_Q5WbdTXLGDRJvbZcfp3s1_pNAhN5cMTsSw/exec",
   rsvpEmail: "rsvp@example.com",
 };
 
@@ -279,15 +280,65 @@ function updateCountdown() {
 }
 
 function setupRsvpForm() {
-  elements.rsvpForm.addEventListener("submit", (event) => {
+  elements.rsvpForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(elements.rsvpForm);
-    const guestName = formData.get("guestName");
-    const guestEmail = formData.get("guestEmail");
-    const guestPhone = formData.get("guestPhone");
-    const guestCount = formData.get("guestCount");
-    const guestMessage = formData.get("guestMessage");
+    const guestName = String(formData.get("guestName") || "").trim();
+    const guestEmail = String(formData.get("guestEmail") || "").trim();
+    const guestPhone = String(formData.get("guestPhone") || "").trim();
+    const guestCount = String(formData.get("guestCount") || "").trim();
+    const guestMessage = String(formData.get("guestMessage") || "").trim();
+
+    if (weddingDetails.rsvpScriptUrl) {
+      elements.formStatus.textContent = "Αποστολή RSVP...";
+
+      try {
+        const iframeName = "rsvp-submit-target";
+        let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+
+        if (!iframe) {
+          iframe = document.createElement("iframe");
+          iframe.name = iframeName;
+          iframe.hidden = true;
+          document.body.appendChild(iframe);
+        }
+
+        const submitForm = document.createElement("form");
+        submitForm.method = "POST";
+        submitForm.action = weddingDetails.rsvpScriptUrl;
+        submitForm.target = iframeName;
+        submitForm.hidden = true;
+
+        const fields = {
+          guestName,
+          guestEmail,
+          guestPhone,
+          guestCount,
+          guestMessage,
+        };
+
+        Object.entries(fields).forEach(([name, value]) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = name;
+          input.value = value;
+          submitForm.appendChild(input);
+        });
+
+        document.body.appendChild(submitForm);
+        submitForm.submit();
+        submitForm.remove();
+
+        elements.formStatus.textContent = "Το RSVP σας στάλθηκε. Ευχαριστούμε πολύ.";
+        elements.rsvpForm.reset();
+        return;
+      } catch {
+        elements.formStatus.textContent = "Η αποστολή απέτυχε. Δοκιμάστε ξανά σε λίγο.";
+        return;
+      }
+    }
+
     const subject = encodeURIComponent(`Wedding RSVP - ${guestName}`);
     const body = encodeURIComponent(
       [
