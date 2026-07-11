@@ -280,7 +280,7 @@ function updateCountdown() {
 }
 
 function setupRsvpForm() {
-  elements.rsvpForm.addEventListener("submit", async (event) => {
+  elements.rsvpForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const formData = new FormData(elements.rsvpForm);
@@ -290,70 +290,55 @@ function setupRsvpForm() {
     const guestCount = String(formData.get("guestCount") || "").trim();
     const guestMessage = String(formData.get("guestMessage") || "").trim();
 
-    if (weddingDetails.rsvpScriptUrl) {
-      elements.formStatus.textContent = "Αποστολή RSVP...";
-
-      try {
-        const iframeName = "rsvp-submit-target";
-        let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
-
-        if (!iframe) {
-          iframe = document.createElement("iframe");
-          iframe.name = iframeName;
-          iframe.hidden = true;
-          document.body.appendChild(iframe);
-        }
-
-        const submitForm = document.createElement("form");
-        submitForm.method = "POST";
-        submitForm.action = weddingDetails.rsvpScriptUrl;
-        submitForm.target = iframeName;
-        submitForm.hidden = true;
-
-        const fields = {
-          guestName,
-          guestEmail,
-          guestPhone,
-          guestCount,
-          guestMessage,
-        };
-
-        Object.entries(fields).forEach(([name, value]) => {
-          const input = document.createElement("input");
-          input.type = "hidden";
-          input.name = name;
-          input.value = value;
-          submitForm.appendChild(input);
-        });
-
-        document.body.appendChild(submitForm);
-        submitForm.submit();
-        submitForm.remove();
-
-        elements.formStatus.textContent = "Το RSVP σας στάλθηκε. Ευχαριστούμε πολύ.";
-        elements.rsvpForm.reset();
-        return;
-      } catch {
-        elements.formStatus.textContent = "Η αποστολή απέτυχε. Δοκιμάστε ξανά σε λίγο.";
-        return;
-      }
+    if (!weddingDetails.rsvpScriptUrl) {
+      elements.formStatus.textContent = "Το RSVP δεν έχει ρυθμιστεί ακόμη. Δοκιμάστε ξανά αργότερα.";
+      return;
     }
 
-    const subject = encodeURIComponent(`Wedding RSVP - ${guestName}`);
-    const body = encodeURIComponent(
-      [
-        `Name: ${guestName}`,
-        `Email: ${guestEmail}`,
-        `Phone: ${guestPhone}`,
-        `Number of Guests: ${guestCount}`,
-        "",
-        "Message:",
-        guestMessage || "No additional message.",
-      ].join("\n")
-    );
+    elements.formStatus.textContent = "Αποστολή RSVP...";
 
-    elements.formStatus.textContent = `Ανοίγει η εφαρμογή email για την απάντηση του/της ${guestName}.`;
-    window.location.href = `mailto:${weddingDetails.rsvpEmail}?subject=${subject}&body=${body}`;
+    try {
+      const iframeName = "rsvp-submit-target";
+      let iframe = document.querySelector(`iframe[name="${iframeName}"]`);
+
+      if (!iframe) {
+        iframe = document.createElement("iframe");
+        iframe.name = iframeName;
+        iframe.hidden = true;
+        document.body.appendChild(iframe);
+      }
+
+      const submitForm = document.createElement("form");
+      submitForm.method = "POST";
+      submitForm.action = weddingDetails.rsvpScriptUrl;
+      submitForm.target = iframeName;
+      submitForm.hidden = true;
+
+      const fields = {
+        guestName,
+        guestEmail,
+        guestPhone,
+        guestCount,
+        guestMessage,
+      };
+
+      Object.entries(fields).forEach(([name, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        submitForm.appendChild(input);
+      });
+
+      document.body.appendChild(submitForm);
+      submitForm.submit();
+      submitForm.remove();
+
+      elements.formStatus.textContent = "Το RSVP σας στάλθηκε. Ευχαριστούμε πολύ.";
+      elements.rsvpForm.reset();
+    } catch {
+      elements.formStatus.textContent = "Η αποστολή απέτυχε. Δοκιμάστε ξανά σε λίγο.";
+    }
   });
 }
 
