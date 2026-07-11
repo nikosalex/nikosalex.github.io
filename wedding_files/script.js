@@ -58,7 +58,7 @@ const weddingDetails = {
   eventDurationHours: 7,
   nikosPhone: document.getElementById("nikos-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο του Νίκου",
   linaPhone: document.getElementById("lina-phone")?.textContent?.trim() || "Προσθέστε το τηλέφωνο της Λίνας",
-  rsvpDeadlineDaysBefore: 15,
+  rsvpDeadlineText: document.getElementById("rsvp-deadline")?.textContent?.trim() || "15 Οκτωβρίου 2026",
   rsvpScriptUrl: "https://script.google.com/macros/s/AKfycbyDvp1PQ8oqEDqq9JDPRLdnuSFZI6ohv_Q5WbdTXLGDRJvbZcfp3s1_pNAhN5cMTsSw/exec",
   rsvpEmail: "rsvp@example.com",
 };
@@ -97,12 +97,6 @@ function formatLongDate(date) {
     month: "long",
     year: "numeric",
   }).format(date);
-}
-
-function getRsvpDeadline() {
-  const deadline = new Date(weddingDetails.eventDate);
-  deadline.setDate(deadline.getDate() - weddingDetails.rsvpDeadlineDaysBefore);
-  return deadline;
 }
 
 function getEventEndDate() {
@@ -236,7 +230,6 @@ function populateDetails() {
     linaPhone,
   } = weddingDetails;
   const coordinateText = `${coordinates.latitude.toFixed(4)}, ${coordinates.longitude.toFixed(4)}`;
-  const rsvpDeadline = getRsvpDeadline();
 
   elements.names.textContent = coupleNames;
   elements.dateText.textContent = displayDate;
@@ -244,7 +237,7 @@ function populateDetails() {
   elements.venueName.textContent = venueName;
   elements.venueAddress.textContent = venueAddress;
   elements.coordinatesText.textContent = coordinateText;
-  elements.rsvpDeadline.textContent = formatLongDate(rsvpDeadline);
+  elements.rsvpDeadline.textContent = weddingDetails.rsvpDeadlineText;
   elements.nikosPhone.textContent = nikosPhone;
   elements.linaPhone.textContent = linaPhone;
   elements.mapLink.href = buildGoogleMapsUrl();
