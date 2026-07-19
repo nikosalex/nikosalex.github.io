@@ -265,6 +265,24 @@ main {
   gap: 1rem;
 }
 
+.gift-details {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.gift-details strong {
+  font-size: 1rem;
+}
+
+.iban-value {
+  letter-spacing: 0.06em;
+  word-break: break-word;
+}
+
 .secondary-link {
   color: var(--accent-strong);
   background: rgba(255, 255, 255, 0.85);
